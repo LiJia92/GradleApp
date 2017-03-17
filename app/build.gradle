@@ -19,23 +19,25 @@ android {
     }
 
     productFlavors {
+        // pad版
         pad {
-
+            applicationId "com.study.lijia.gradleapp.pad"
         }
-
+        // 手机版
         phone {
-
+            applicationId "com.study.lijia.gradleapp.phone"
+        }
+        // 定制版
+        custom {
+            applicationId "com.study.lijia.gradleapp"
         }
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:25.2.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:design:25.2.0'
-    testCompile 'junit:junit:4.12'
+    padCompile project(path: ':pad', configuration: 'commenDebug')
+    phoneCompile project(path: ':phone', configuration: 'commenDebug')
+
+    // custom依赖phone的special版
+    customCompile project(path: ':phone', configuration: 'specialDebug')
 }
