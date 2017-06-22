@@ -1,1 +1,1 @@
-include ':app', ':appcore', ':pad', ':phone'
+include ':app', ':appcore', ':pad', ':phone', ':javalib'
